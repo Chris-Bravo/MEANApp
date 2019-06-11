@@ -1,0 +1,26 @@
+<div class="registration__container" ng-controller="LoginController as vm">
+        <div class="registration">
+            <h2 class="registration__title">Sign in</h2>
+            <form class="form" name="logForm" ng-submit="vm.sendData(logForm)">
+                <div class="growl growl__alert" ng-show="vm.errorMsg">
+                    <p><i class="fas fa-exclamation-triangle alert-icon"></i>You entered an incorrect email, password, or both.</p>
+                </div>
+                <div class="form__group">
+                    <label class="form__label" for="username">Username:</label>
+                    <input class="form__input" id="username" name="uUsername" type="text" ng-model="vm.loginData.username">
+                </div>
+                <div class="form__group">
+                    <label class="form__label" for="password">Password:</label>
+                    <input class="form__input" id="password" name="uPassword" type="password" ng-model="vm.loginData.password">
+                </div>
+                <button class="btn btn-register" type="submit">Login</button>
+                <div class="account-question">
+                    <p>Don't have an account?<a href="/register"> Sign up</a></p>
+                </div>
+                <a href="/auth/facebook" target="_blank"><button type="button">Facebook</button></a>
+            </form>
+        </div>
+        <div class="loader__overlay" ng-show="vm.loading">
+            <span class="loader"></span>
+        </div>
+    </div>

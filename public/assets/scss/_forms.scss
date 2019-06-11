@@ -1,0 +1,39 @@
+.form{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 480px;
+
+    &__group{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+
+        &-with-childs{
+            display: flex;
+            width: 100%;
+        }
+        &:last-child{
+            margin-left: 10px;
+        }
+    }    
+    &__label{
+        padding: 10px 0;
+    }
+    &__input{
+        border-radius: 3px;
+        border: 1px solid $link-color;
+        width: 100%;
+        padding: 10px;
+        font-size: 14px;
+
+        &:focus{
+            outline: auto $link-color;
+        }
+    }
+}
+.account-question{
+    margin-top: 20px;
+    width: 100%;
+}

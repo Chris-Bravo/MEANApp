@@ -1,0 +1,49 @@
+.not-found{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+    height: 100%;
+    max-width: 991px;
+    margin: 0 auto;
+
+    @media screen and (max-width: 767px){
+        grid-template-columns: 1fr;
+        grid-row-gap: 10px;
+    }
+
+    &__text-container{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        min-width: 330px;
+
+        @media screen and (max-width: 767px){
+            align-items: center;
+            min-width: initial;
+        }
+    }
+    &__text{
+        color: $black;
+        font-size: 40px;
+        font-weight: bold;
+        text-align: center;
+    }
+    &__404{
+        color: $link-color;
+        font-size: 90px;
+        font-weight: bold;
+    }
+
+    &__image{
+        max-width: 450px;
+        width: 100%;
+
+        &-container{
+            display: flex;
+            justify-content: center;
+        }
+    }
+}

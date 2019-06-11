@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <base href="/">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <!--CSS files-->
+        <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="../assets/css/styles.css">
+        <script src="https://kit.fontawesome.com/83d0fc4441.js"></script>
+        <title>Index</title>
+    </head>
+    <body ng-app="UserApp" ng-controller="MainController as main">
+        <div class="main">
+            <div class="main__header">
+                <div class="header__logo">
+                    <span>LOGO</span>
+                </div>
+                <div class="header__buttons">
+                    <navigation-links></navigation-links>
+                </div>
+                <div class="header__burger-button">
+                    <a class="burger-menu__open-button" ng-click="main.openMenu()"><i class="fas fa-bars"></i></a>
+                    <div class="burger-menu__container" ng-class="{active: main.isMenuActive}">
+                        <div class="burger-menu__close-container">
+                            <a class="burger-menu__close-button" ng-click="main.closeMenu()"><i class="fas fa-times"></i></a>
+                        </div>
+                        <div class="burger-menu__content">
+                            <navigation-links></navigation-links>
+                        </div>
+                    </div>
+                    <div class="burger-menu__overlay" ng-class="{active: main.isMenuActive}" ng-click="main.closeMenu()">close</div>
+                </div>
+            </div>
+            <div ng-view></div>
+        </div>
+        
+    <!--Angular Scripts-->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
+    <script src="https://code.angularjs.org/1.7.8/angular-route.min.js"></script>
+    
+    <!--App Scripts-->
+    <script src="./app/app.js"></script>
+    <script src="./app/route.js"></script>
+
+    <!--App Controllers-->
+    <script src="./app/controllers/registration.controller.js"></script>
+    <script src="./app/controllers/login.controller.js"></script>
+    <script src="./app/controllers/main.controller.js"></script>
+    
+    <!--App Services-->
+    <script src="./app/services/user.service.js"></script>
+    <script src="./app/services/auth.service.js"></script>
+    <!--App Directives-->
+    <script src="./app/directives/navigation-links.directive.js"></script>
+</body>
+</html>

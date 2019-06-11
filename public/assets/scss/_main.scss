@@ -1,0 +1,55 @@
+.main{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+    position: relative;
+    min-height: 100vh;
+
+    &__header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        position: relative;
+        width: 100%;
+        max-width: 991px;
+        margin: 0 auto;
+    }
+}
+
+.header{
+
+    &__buttons{
+        display: flex;
+
+        @media screen and(max-width: 767px){
+            display: none;
+        }
+    }
+    &__logo{
+        font-size: 24px;
+    }
+    &__burger-button{
+        display: none;
+
+        @media screen and(max-width: 767px){
+            display: flex;
+        }
+    }
+}
+        
+.navigation-buttons{
+    display: flex;
+
+    @media screen and (max-width: 767px){
+        flex-direction: column;
+    }
+  
+    &__container{
+      margin-left: 10px;
+
+      @media screen and (max-width: 767px){
+          margin: 0;
+      }
+    }
+}

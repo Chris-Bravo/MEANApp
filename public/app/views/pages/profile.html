@@ -1,0 +1,14 @@
+<div class="profile">
+    <div class="profile__circle-container">
+        <div class="profile__circle">{{ main.user.firstLetter | uppercase }}{{ main.user.secondLetter | uppercase }}</div>
+    </div>
+    <div class="profile__information">
+        <h2 class="profile__name">{{main.user.firstName}} {{main.user.lastName}} <span class="profile__username">({{main.user.username}})</span> </h2>
+        <p class="profile__email">{{main.user.email}}</p>
+        <p class="profile__description">{{main.user.description}}</p>
+    </div>
+    <div class="profile__image-container">
+        <p class="profile__text">Your profile...</p>
+        <img class="profile__image" src="assets/img/profile-image.png" alt="">
+    </div>
+</div>

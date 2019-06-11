@@ -1,0 +1,14 @@
+<ul class="navigation-buttons">
+    <li class="navigation-buttons__container" ng-show="!vm.isLoggedIn">
+        <a class="btn btn-header" ng-class="{ activeLink: vm.isActive('/home')}" href="/home"><i class="fas fa-home"></i> Home</a>
+    </li>
+    <li class="navigation-buttons__container" ng-show="!vm.isLoggedIn">
+        <a class="btn btn-header" ng-class="{ activeLink: vm.isActive('/login')}" href="/login"><i class="fas fa-rocket"></i>Sing up / Login</a>
+    </li>
+    <li class="navigation-buttons__container" ng-show="vm.isLoggedIn">
+        <a class="btn btn-header" ng-class="{ activeLink: vm.isActive('/profile')}" href="/profile"><i class="fas fa-child"></i> Profile</a>
+    </li>
+    <li class="navigation-buttons__container" ng-show="vm.isLoggedIn">
+        <a class="btn btn-header" ng-click="vm.logout()"><i class="fas fa-power-off"></i> Logout</a>
+    </li>
+</ul>

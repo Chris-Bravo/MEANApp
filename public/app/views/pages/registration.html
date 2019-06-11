@@ -1,0 +1,43 @@
+<div class="registration__container" ng-controller="RegistrationController as vm">
+    <div class="registration">
+        <h2 class="registration__title">Sign up</h2>
+        <form class="form" name="regForm" ng-submit="vm.sendData(regForm)">
+            <div class="growl growl__alert" ng-show="vm.errorMsg">
+                <p><i class="fas fa-exclamation-triangle alert-icon"></i>You entered an incorrect email, password, or both.</p>
+            </div>
+            <div class="form__group-with-childs">
+                <div class="form__group">
+                    <label class="form__label" for="firstName">First Name:</label>
+                    <input class="form__input" id="firstName" name="uFirstName" type="text" ng-model="vm.regData.firstName">
+                </div>
+                <div class="form__group">
+                    <label class="form__label" for="firstName">Last Name:</label>
+                    <input class="form__input" id="lasttName" name="uLastName" type="text" ng-model="vm.regData.lastName">
+                </div>
+            </div>
+            <div class="form__group">
+                <label class="form__label" for="username">Username:</label>
+                <input class="form__input" id="username" name="uUsername" type="text" ng-model="vm.regData.username">
+            </div>
+            <div class="form__group">
+                <label class="form__label" for="email">Email:</label>
+                <input class="form__input" id="email" name="uEmail" type="email" ng-model="vm.regData.email">
+            </div>
+            <div class="form__group">
+                <label class="form__label" for="password">Password:</label>
+                <input class="form__input" id="password" name="uPassword" type="password" ng-model="vm.regData.password">
+            </div>
+            <div class="form__group">
+                <label class="form__label" for="description">Tell us some about you:</label>
+                <textarea class="form__input" id="description" name="uDescription" type="text" ng-model="vm.regData.description"></textarea>
+            </div>
+            <button class="btn btn-register" type="submit">Register</button>
+            <div class="account-question">
+                <p>Already have an account?<a href="/login"> Sign in</a></p>
+            </div>
+        </form>
+    </div>
+    <div class="loader__overlay" ng-show="vm.loading">
+        <span class="loader"></span>
+    </div>
+</div>

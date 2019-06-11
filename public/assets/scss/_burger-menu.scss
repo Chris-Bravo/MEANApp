@@ -1,0 +1,66 @@
+.burger-menu {
+
+    &__open-button {
+      font-size: 24px;
+      cursor: pointer;
+      
+      i {
+        margin: 0;
+      }
+    }
+  
+    &__container{
+      position: fixed; /* We fix the position of menu */
+      top: 0; /* This menu is always on top */
+      bottom: 0; /* Make sure that menu is 100% height */
+      height: 100%;
+      right: 0; 
+      width: 200px;
+      transform: translate(999px, 0); /* We hide the menu on the right side of the app */
+      transition: transform 0.5s; /* We defined the animation at here */
+      background: white;
+      z-index: 99;
+      box-shadow: -3px 0px 8px 0px rgba(0, 0, 0, 0.5);
+  
+      &.active {
+        transform: translate(0, 0); /* We show the menu when "active" class is added */
+      }
+    }
+    &__content{
+      padding: 10px 0;
+    }
+  
+  
+    &__close-container{
+      display: flex;
+      justify-content: flex-end;
+      padding: 10px;
+    }
+    &__close-button {
+      font-size: 24px;
+      
+      i{
+        margin: 0;
+      }
+    }
+    &__overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      opacity: 0.4;
+      background-color: black;
+      
+      &.active {
+        display: block;
+      }
+    }
+    &__buttons-container{
+  
+    }
+  }
+  
+  
+  
