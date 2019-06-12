@@ -14,6 +14,9 @@ function Auth($http, AuthToken, $q){
                 AuthToken.setToken(data.data.token);
                 return data;
             })
+            .catch(function(err){
+                console.error(err)
+            })
     }
     authFactory.getUser = function() {
         if (AuthToken.getToken()) {
@@ -45,6 +48,9 @@ function AuthToken($window){
         $window.localStorage.setItem('token', token);
     }
     authTokenFactory.getToken = function() {
+        if($window.localStorage.getItem('token') == 'undefined') {
+            authTokenFactory.removeToken();
+        }
         return $window.localStorage.getItem('token');
     }
     authTokenFactory.removeToken = function() {
@@ -65,10 +71,8 @@ function AuthInterceptors(AuthToken){
         if (token) {
             config.headers['x-access-token'] = token;
         }
-
         return config;
     }
-
 
     return authInterceptorsFactory;
 }

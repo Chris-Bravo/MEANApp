@@ -12,7 +12,6 @@ userSchema = new Schema({
     description: {type: String, required: false, unique: false, lowercase: true}
 });
 
-
 userSchema.pre('save', function(next) {
     
     var user = this;

@@ -19,7 +19,14 @@ angular
                 templateUrl: 'app/views/pages/profile.html'
             })
             .when('/facebook/:token', {
-                templateUrl: 'app/views/pages/social.html'
+                templateUrl: 'app/views/pages/social.html',
+                controller: 'FacebookController',
+                controllerAs: 'facebook'
+            })
+            .when('/facebookerror', {
+                templateUrl: 'app/views/pages/login.html',
+                controller: 'FacebookController',
+                controllerAs: 'facebook'
             })
             .when('/', {
                 redirectTo: '/home'

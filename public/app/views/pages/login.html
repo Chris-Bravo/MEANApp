@@ -5,6 +5,9 @@
                 <div class="growl growl__alert" ng-show="vm.errorMsg">
                     <p><i class="fas fa-exclamation-triangle alert-icon"></i>You entered an incorrect email, password, or both.</p>
                 </div>
+                <div class="growl growl__alert" ng-show="facebook.errorMsg">
+                    <p><i class="fas fa-exclamation-triangle alert-icon"></i>Facebook email not found in database</p>
+                </div>
                 <div class="form__group">
                     <label class="form__label" for="username">Username:</label>
                     <input class="form__input" id="username" name="uUsername" type="text" ng-model="vm.loginData.username">

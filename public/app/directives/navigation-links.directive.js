@@ -1,23 +1,23 @@
 angular
     .module('UserApp')
-    .directive('navigationLinks', navigationLinks);
+    .directive('navigationLinks', NavigationLinks);
 
-function navigationLinks() {
+function NavigationLinks() {
     return {
         restrict: 'E',
-        scope: {},
         templateUrl: 'app/directives/navigation-links.directive.html',
         controller: NavigationLinksController,
-        controllerAs: 'vm',
-        transclude: true
+        controllerAs: 'vm'
     };
 }
 
 function NavigationLinksController($rootScope, Auth, $location) {
 
     var vm = this;
+
     vm.logout = logout;
     vm.isActive = isActive;
+    vm.isLoggedIn;
 
     $rootScope.$on('$routeChangeStart', function() {
         if(Auth.isLoggedIn()) {
@@ -30,9 +30,18 @@ function NavigationLinksController($rootScope, Auth, $location) {
         }
     })
 
+    if(Auth.isLoggedIn()) {
+        Auth.getUser()
+            .then(function() {
+                vm.isLoggedIn = true;
+            })
+    } else {
+        vm.isLoggedIn = false;
+    }
+
     function logout() {
         Auth.logout();
-        $location.path('/');
+        $location.path('/login');
     }
 
     function isActive(route){

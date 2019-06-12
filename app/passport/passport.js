@@ -33,24 +33,21 @@ module.exports = function(app, passport){
         profileFields: ['id', 'displayName', 'photos', 'email']
     },
     function(accessToken, refreshToken, profile, done) {
-        /*User.findOrCreate(..., function(err, user) {
-          if (err) { return done(err); }
-        }); */
         User.findOne({ email: profile._json.email }).select('email username password firstName lastName description').exec(function(err, user) {
-            if (err) { 
-                return done(err); 
+            if (err) {
+                done(err); 
             }
-            console.log('USER:', user)
-            console.log('PROFILE', profile)
-            done(null, profile);
+            if (user && user != null){
+                done(null, user)
+            } else {
+                done(err)
+            }
         })
     }));
     
-    app.get('/auth/facebook/callback', passport.authenticate('facebook', { failureRedirect: '/login'}), function(req, res) {
+    app.get('/auth/facebook/callback', passport.authenticate('facebook', { failureRedirect: '/facebookerror'}), function(req, res) {
         res.redirect('/facebook/' + token)
     });
 
     app.get('/auth/facebook', passport.authenticate('facebook', { scope: 'email' }));
-
-
 }

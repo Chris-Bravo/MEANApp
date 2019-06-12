@@ -9,6 +9,7 @@ function MainController(Auth, $rootScope, $location) {
     vm.openMenu = openMenu;
     vm.closeMenu = closeMenu;
     vm.isMenuActive = false;
+    vm.isLoggedIn;
 
     $rootScope.$on('$routeChangeStart', function() {
         if(Auth.isLoggedIn()) {
@@ -26,6 +27,10 @@ function MainController(Auth, $rootScope, $location) {
         } else {
             vm.isLoggedIn = false;
             vm.user = {};
+        }
+
+        if($location.hash() === '_=_'){
+            $location.hash(null);
         }
     })
 

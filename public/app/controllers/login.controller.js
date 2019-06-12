@@ -5,25 +5,34 @@ angular
 function LoginController($http, $location, Auth, $timeout) {
 
     var vm = this;
+
     vm.loginData = {};
     vm.sendData = sendData;
+    vm.errorMsg;
+    vm.loading;
     
-    function sendData(logForm){
+    function sendData(){
+        
         vm.loading = true;
         vm.errorMsg = false;
+
         Auth.loginUser(vm.loginData)
             .then(function(res) {
+        
                 if(res.data.success){
-                    vm.successMsg = res.data.message;
                     $timeout(function() {
                         vm.loading = false;
                         $location.path('/profile');
-                    }, 2000)
+                    }, 1500)
+        
                 } else {
                     vm.loading = false;
                     vm.errorMsg = res.data.message;
                     vm.loginData.password = '';
                 }
+            })
+            .catch(function(err){
+                console.error(err);
             })
     }
 }
